@@ -1,0 +1,16 @@
+{
+    "contents" : "# Random forest downsampling and aggregating function\ndaggrForest = function(X, y, nagg=25, trace=TRUE, ncore=1, ...){\n  \n  train.under = X[which(y==0),]\n  train.over = X[which(y==1),]\n  n.over = nrow(train.over)\n  \n  parfun = function(i){\n    traini = data.frame(rbind(train.over,\n                              train.under[sample(1:nrow(train.under),\n                                                 n.over, replace=F),]))\n    rf.i = randomForest(formula,\n                        data=traini, na.action=na.omit, ...)\n    if(trace)\n      print(paste(\"End of model\",i), quote=F)\n    return(rf.i)\n  }\n  if(ncore==1)\n    rf.list = lapply(1:nagg, parfun)\n  else\n    rf.list = mclapply(1:nagg, parfun, mc.cores=ncore)\n  return(rf.list)\n}\n\n# Predict from an daggrForest list\npredict = function(rf.list, newdata){\n  nagg = length(rf.list)\n  preds = matrix(0, ncol=nagg, nrow=nrow(newdata))\n  for(i in 1:nagg){\n    preds[,i] = predict(rf.list[[i]], newdata, type=\"prob\")[,2]\n  }\n  return(rowMeans(preds))\n}\n\n# Variable importance plot\nImportancePlot(rf.list, sort=TRUE){\n  nagg=length(rf.list)\n  imp.mat = matrix(0, ncol=nagg, nrow=rf.list[[1]]$forest$xlevels)\n  for(i in 1:nagg){\n    imp.mat[,i] = as.numeric(rf.list[[i]]$importance)\n  }\n  imp.mean = rowMeans(imp.mat)\n  ord = order(imp.mean, decreasing=F)\n  imp.mean = as.matrix(imp.mean[ord])\n  row.names(imp.mean) = row.names(m5a[[1]]$importance)[ord]\n  colnames(imp.mean) = NA\n  dotchart(imp.mean, main=\"Averaged variable importance plot\",\n           xlim=c(0,5e3),\n           xlab=\"Mean decrease in Gini coefficient\")\n  \n}",
+    "created" : 1408398381563.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "2047024351",
+    "id" : "34E0B994",
+    "lastKnownWriteTime" : 1408401054,
+    "path" : "~/GitHub/daggrForest/R/daggrForest.R",
+    "project_path" : "R/daggrForest.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

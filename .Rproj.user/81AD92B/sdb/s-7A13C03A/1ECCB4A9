@@ -1,0 +1,16 @@
+{
+    "contents" : "\\name{daggrForest-package}\n\\alias{daggrForest-package}\n\\alias{daggrForest}\n\\docType{package}\n\\title{\nDownsampled and aggregated random forests for unbalanced class prediction \n}\n\\description{\nDownsampled and aggregated random forests for unbalanced class prediction }\n\\details{\n\\tabular{ll}{\nPackage: \\tab daggrForest\\cr\nType: \\tab Package\\cr\nVersion: \\tab 1.0\\cr\nDate: \\tab 2014-08-18\\cr\nLicense: \\tab GPL\\cr\n}\n~~ An overview of how to use the package, including the most important functions ~~\n}\n\\author{\nSubhabrata Majumdar\n\nMaintainer: Subhabrata Majumdar <majum010@umn.edu>\n}\n\\references{\n~~ Literature or other references for background information ~~\n}\n~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R ~~\n~~ documentation directory ~~\n\\keyword{ package }\n\\seealso{\n~~ Optional links to other man pages, e.g. ~~\n~~ \\code{\\link[randomForest:randomForest-package]{<pkg>}} ~~\n}\n\\examples{\n~~ simple examples of the most important functions ~~\n}\n",
+    "created" : 1408401391010.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "695646065",
+    "id" : "1ECCB4A9",
+    "lastKnownWriteTime" : 1408400541,
+    "path" : "~/GitHub/daggrForest/man/daggrForest-package.Rd",
+    "project_path" : "man/daggrForest-package.Rd",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_doc"
+}

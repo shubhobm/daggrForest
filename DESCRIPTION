@@ -1,0 +1,10 @@
+Package: daggrForest
+Type: Package
+Title: Downsampled and aggregated random forests for unbalanced class prediction 
+Version: 1.0
+Date: 2014-08-18
+Author: Subhabrata Majumdar
+Maintainer: Subhabrata Majumdar <majum010@umn.edu>
+Description: 
+License: What license is it under?
+Depends: randomForest
